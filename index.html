@@ -1,0 +1,319 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Feira de Projetos 2025.2</title>
+<meta name="description" content="Registro da Feira de Projetos das Engenharias USF 2025.2: projetos dos estudantes de Engenharia Elétrica e de Computação nos câmpus Itatiba, Campinas e Bragança Paulista.">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,600;62..125,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+/* Layout: faixa azul-marinho com arte generativa de placa de circuito (traços em âmbar e ciano) à direita; abas Início + semestres; grupos como etiquetas de bancada */
+:root{
+  --paper:#f3f5f9; --sheet:#ffffff; --ink:#141b30; --muted:#5a6383; --rule:#d8dce8;
+  --navy:#0e1a3a; --navy-2:#16285a; --on-navy:#eef1fa; --amber:#f0a83a; --amber-ink:#9a5d0c; --amber-soft:#fcefd8;
+  --cyan:#5fd4f4; --hl:#16285a;
+  --display:"Archivo","Arial Narrow",Arial,sans-serif;
+  --body:"IBM Plex Sans","Segoe UI",Roboto,sans-serif;
+  --mono:"IBM Plex Mono",ui-monospace,Menlo,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#0a1020; --sheet:#111a31; --ink:#e5e9f5; --muted:#9aa3c0; --rule:#233055;
+  --navy:#0b1530; --navy-2:#142450; --amber-ink:#f0b04d; --amber-soft:#2c2412; --hl:#f0a83a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#0a1020; --sheet:#111a31; --ink:#e5e9f5; --muted:#9aa3c0; --rule:#233055;
+  --navy:#0b1530; --navy-2:#142450; --amber-ink:#f0b04d; --amber-soft:#2c2412; --hl:#f0a83a; color-scheme:dark}
+:root{padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--paper);color:var(--ink);font:15.5px/1.6 var(--body)}
+img{max-width:100%}[hidden]{display:none!important}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--amber);outline-offset:2px}
+.wrap{max-width:1120px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);margin:0;text-wrap:balance}
+p{margin:0}
+.label{font:500 11.5px/1.3 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+
+/* hero */
+.hero{background:var(--navy);color:var(--on-navy);overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:36px;align-items:center;padding-block:44px 40px}
+.stamp{display:inline-block;border:1.5px solid var(--amber);color:var(--amber);font:500 11.5px/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;padding:7px 10px}
+.hero h1{font-weight:800;font-stretch:76%;font-size:clamp(38px,6vw,64px);line-height:.98;margin-top:18px;letter-spacing:-.01em}
+.hero h1 em{font-style:normal;color:var(--amber);display:block}
+.hero .lede{margin-top:16px;max-width:54ch;opacity:.88}
+.art{position:relative;aspect-ratio:4/3;max-width:100%;clip-path:polygon(8% 0,100% 0,100% 88%,92% 100%,0 100%,0 12%);background:#08112a}
+.art canvas{position:absolute;inset:0;width:100%;height:100%;display:block}
+.art .tag{position:absolute;left:14px;bottom:12px;font:500 11px/1 var(--mono);letter-spacing:.12em;color:var(--cyan);opacity:.85}
+
+/* noites */
+.nights{background:var(--navy-2);color:var(--on-navy)}
+.nights .wrap{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+.night{padding:18px 18px 18px 0;display:grid;gap:4px;border-right:1px solid rgba(255,255,255,.12);min-width:0}
+.night+.night{padding-left:18px}
+.night:last-child{border-right:0}
+.night .d{font:800 28px/1 var(--display);font-stretch:75%;color:var(--amber);font-variant-numeric:tabular-nums}
+.night .d span{font:500 13px/1 var(--mono);color:var(--on-navy);opacity:.75;margin-left:8px;letter-spacing:.04em}
+.night b{font:600 16px/1.25 var(--display);font-stretch:92%}
+.night small{opacity:.78;font-size:13.5px}
+
+/* abas */
+nav.tabs{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--sheet);border-bottom:1px solid var(--rule)}
+nav.tabs .wrap{display:flex;gap:2px;overflow-x:auto;scrollbar-width:none}
+nav.tabs button{appearance:none;border:0;background:none;color:var(--muted);font:600 15px/1 var(--display);font-stretch:92%;padding:17px 14px 14px;border-bottom:3px solid transparent;cursor:pointer;white-space:nowrap;letter-spacing:.01em}
+nav.tabs button[aria-selected="true"]{color:var(--ink);border-bottom-color:var(--amber)}
+nav.tabs button:hover{color:var(--ink)}
+
+main .wrap{padding-block:36px 64px;display:grid;gap:44px}
+h2{font-weight:800;font-stretch:80%;font-size:clamp(26px,3.4vw,34px);line-height:1.1}
+h3{font-weight:700;font-stretch:90%;font-size:19px}
+.muted{color:var(--muted)}
+
+/* início */
+.intro{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.15fr);gap:40px;align-items:start}
+.intro .prose{display:grid;gap:12px;max-width:62ch}
+.totals{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:1px;background:var(--rule);border:1px solid var(--rule)}
+.totals div{background:var(--sheet);padding:16px;display:grid;gap:2px}
+.totals b{font:800 36px/1 var(--display);font-stretch:72%;font-variant-numeric:tabular-nums}
+.tablebox{overflow-x:auto;min-width:0;background:var(--sheet);border:1px solid var(--rule)}
+table{border-collapse:collapse;width:100%;font-variant-numeric:tabular-nums}
+.matrix th,.matrix td{padding:9px 12px;border-bottom:1px solid var(--rule);text-align:right;white-space:nowrap}
+.matrix th:first-child,.matrix td:first-child{text-align:left;white-space:normal}
+.matrix thead th{font:500 11px/1.3 var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.matrix tfoot td{font-weight:600;border-bottom:0;border-top:2px solid var(--ink)}
+.matrix small{display:block;color:var(--muted);font-size:12.5px}
+.sems{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.sem{appearance:none;text-align:left;font:inherit;color:inherit;cursor:pointer;background:var(--sheet);border:1px solid var(--rule);padding:18px;display:grid;gap:10px;align-content:start;position:relative}
+.sem::after{content:"";position:absolute;right:0;top:0;width:18px;height:18px;background:linear-gradient(225deg,var(--amber) 50%,transparent 50%)}
+.sem:hover{border-color:var(--hl)}
+.sem .n{font:800 40px/.9 var(--display);font-stretch:70%;color:var(--amber-ink)}
+.sem h3{font-size:16px;line-height:1.3}
+.sem .k{font:500 12px/1 var(--mono);color:var(--muted)}
+.people{display:grid;grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr);gap:28px;align-items:start}
+.coord{background:var(--navy);color:var(--on-navy);padding:22px;display:grid;gap:6px;clip-path:polygon(0 0,100% 0,100% 82%,90% 100%,0 100%)}
+.coord b{font:700 19px/1.25 var(--display);font-stretch:90%;color:var(--amber)}
+.profs{columns:2 220px;column-gap:28px;margin:12px 0 0;padding:0;list-style:none}
+.profs li{break-inside:avoid;padding:6px 0;border-bottom:1px solid var(--rule)}
+
+/* semestre */
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.toolbar input{flex:1 1 240px;min-width:0;padding:11px 13px;border:1px solid var(--rule);background:var(--sheet);color:var(--ink);font:inherit}
+.chip{appearance:none;border:1px solid var(--rule);background:var(--sheet);color:var(--ink);padding:8px 13px;font:500 14px/1 var(--body);cursor:pointer}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:var(--on-navy)}
+.disc{display:grid;gap:20px}
+.disc-head{display:grid;gap:8px;max-width:72ch}
+.campus{display:grid;gap:10px}
+.campus-head{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap;border-bottom:1px solid var(--rule);padding-bottom:8px}
+.campus-head h3 span{font:400 14px var(--body);color:var(--muted);margin-left:8px}
+.cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}
+.card{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:2px 10px;align-items:center;padding:10px 12px;background:var(--sheet);border:1px solid var(--rule);border-left:3px solid var(--rule);text-decoration:none;min-width:0}
+a.card{border-left-color:var(--amber)}
+a.card:hover{border-color:var(--hl);border-left-color:var(--amber)}
+.code{font:500 12.5px/1 var(--mono);background:var(--amber-soft);color:var(--ink);padding:6px 7px;font-variant-numeric:tabular-nums;grid-row:span 2;align-self:start}
+.card .name{font-weight:600;overflow-wrap:anywhere;line-height:1.3}
+.card .meta{grid-column:2;font-size:13px;color:var(--muted);line-height:1.3}
+.card .go{grid-row:1/span 2;grid-column:3;font-size:13px;font-weight:600;color:var(--amber-ink);white-space:nowrap}
+.card .none{grid-row:1/span 2;grid-column:3;font-size:12px;color:var(--muted);white-space:nowrap}
+.empty{padding:16px;border:1px dashed var(--rule);color:var(--muted)}
+
+footer{background:var(--navy);color:var(--on-navy)}
+footer .wrap{padding-block:22px 28px;display:flex;flex-wrap:wrap;justify-content:space-between;gap:10px 24px;font-size:14px}
+
+@media (max-width:860px){
+  .hero .wrap,.intro,.people{grid-template-columns:minmax(0,1fr)}
+  .nights .wrap{grid-template-columns:minmax(0,1fr)}
+  .night,.night+.night{padding:14px 0;border-right:0;border-bottom:1px solid rgba(255,255,255,.12)}
+  .night:last-child{border-bottom:0}
+  .sems{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .totals{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (prefers-reduced-motion:no-preference){.card,.sem,.chip{transition:border-color .15s,background .15s}}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="wrap">
+    <div>
+      <span class="stamp">Edição realizada · novembro de 2025</span>
+      <h1>Feira de Projetos das Engenharias <em>2025.2</em></h1>
+      <p class="lede">Engenharia Elétrica e Engenharia de Computação da Universidade São Francisco. Projetos desenvolvidos pelos estudantes nas componentes curriculares do semestre, apresentados nos três câmpus.</p>
+    </div>
+    <div class="art" role="img" aria-label="Ilustração de uma placa de circuito com trilhas luminosas"><canvas id="pcb"></canvas><span class="tag">USF · ENG · 2025.2</span></div>
+  </div>
+</header>
+<section class="nights" aria-label="Noites da feira"><div class="wrap" id="nights"></div></section>
+<nav class="tabs" aria-label="Seções"><div class="wrap" role="tablist" id="tabs"></div></nav>
+<main><div class="wrap" id="view"></div></main>
+<footer><div class="wrap">
+  <span>Feira de Projetos das Engenharias 2025.2 · registro histórico</span>
+  <span><a href="https://sites.google.com/usf.edu.br/feiradeprojetos2025/p%C3%A1gina-inicial" target="_blank" rel="noopener">Site original ↗</a> · <a href="https://demeyhofer.github.io/feira-de-projetos-2026/" target="_blank" rel="noopener">Edição 2026.2 ↗</a></span>
+</div></footer>
+
+<script>
+const NOITES = [
+  { cp:"Itatiba", local:"Câmpus Itatiba", d:"10/11", wd:"seg" },
+  { cp:"Campinas", local:"Câmpus Campinas (Sagrado)", d:"11/11", wd:"ter" },
+  { cp:"Bragança Paulista", local:"Câmpus Bragança Paulista", d:"12/11", wd:"qua" }
+];
+const HORARIO = "19h às 21h30";
+const COORD = "Renato Franco Camargo";
+const PROFESSORES = ["Andre Renato Bakalereskis","Annete Silva Faesarella","Cláudio Kiyoshi Umezu","Débora Meyhofer Ferreira",
+  "Elisabeth Conceiçao Sena Gonçalves","Felipe Cavalaro","Gabriel Vieira Seraphim","Geraldo Peres Caixeta","Jorge Henrique Ito Medeiros",
+  "João Hermes Clerici","Leandro Felipe Carvalho","Pedro Fascina Casarin","Silvio Petroli Neto","Vânia Franciscon Vieira","Vicente Idelberto Becerra Sablon"];
+const SEMS = [ {id:"s2",n:"2º",nome:"2º Semestre",disc:["cl"]}, {id:"s4",n:"4º",nome:"4º Semestre",disc:["ce"]},
+  {id:"s6",n:"6º",nome:"6º Semestre",disc:["poo","me"]}, {id:"s8",n:"8º",nome:"8º Semestre",disc:["rob","red"]} ];
+const DISC = {
+  cl:{ nome:"Circuitos Lógicos", curso:"Engenharia Elétrica e Engenharia de Computação",
+       desc:"Circuitos combinacionais e sequenciais projetados, simulados e implementados para situações reais ou didáticas, como contadores de moedas, cronômetros e travas digitais." },
+  ce:{ nome:"Circuitos Elétricos", curso:"Engenharia Elétrica e Engenharia de Computação",
+       desc:"Análise e montagem de circuitos em corrente contínua e alternada, com resistores, capacitores e indutores, potência, impedância, ressonância e leis de Kirchhoff." },
+  poo:{ nome:"Programação Orientada a Objetos", curso:"Engenharia de Computação",
+       desc:"Jogos e aplicações desenvolvidos com classes, herança, encapsulamento e polimorfismo." },
+  me:{ nome:"Máquinas Elétricas", curso:"Engenharia Elétrica",
+       desc:"Protótipos com motores, geradores e conversão de energia, como seguidor solar e máquina CNC." },
+  rob:{ nome:"Sistemas Autônomos e Robótica", curso:"Engenharia de Computação", prof:"Felipe Cavalaro",
+       desc:"Robôs de combate projetados, construídos e programados pelas equipes." },
+  red:{ nome:"Redes de Computadores e Automação", curso:"Engenharia Elétrica", prof:"Andre Renato Bakalereskis",
+       desc:"Automação industrial com CLP: esteiras, elevador, misturador, separação de peças e piscicultura." }
+};
+const CAMPI = ["Itatiba","Campinas","Bragança Paulista"];
+const GRUPOS = [{"c": "P33", "n": "Chicoins Counter", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/pj-contador-de-moedas-usf", "t": ""}, {"c": "P34", "n": "De 0 a 1", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/de-0-a-1-/in%C3%ADcio", "t": ""}, {"c": "P35", "n": "Engenharia.bet", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/bit-sense/p%C3%A1gina-inicial?authuser=1", "t": ""}, {"c": "P36", "n": "Equipe", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/projeto-circuitos-logicos-gp2/p%C3%A1gina-inicial", "t": ""}, {"c": "P37", "n": "Equipe Cão", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/projetoequipecao/in%C3%ADcio", "t": ""}, {"c": "P38", "n": "Onda Quadrada", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/grupo1-circuitoslogicos/in%C3%ADcio", "t": ""}, {"c": "P39", "n": "Overclocked", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/overclocked/p%C3%A1gina-inicial", "t": ""}, {"c": "P40", "n": "Vai 1", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/projetovaium/in%C3%ADcio", "t": ""}, {"c": "P41", "n": "CoinTech", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/contador-de-moedas?usp=sharing", "t": ""}, {"c": "P42", "n": "Semarec", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/projeto-circuitos-logicosg-g7/in%C3%ADcio", "t": ""}, {"c": "P43", "n": "Runners", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/projeto-circuitos-logicosg-g7/in%C3%ADcio", "t": ""}, {"c": "P44", "n": "Twister", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/projeto-grupo-4?usp=sharing", "t": ""}, {"c": "P45", "n": "Fluxocount", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/companyb/funcionalidades", "t": ""}, {"c": "P46", "n": "Volt Power", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/voltpowerengenharia", "t": ""}, {"c": "P47", "n": "Star", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/grupo-9/in%C3%ADcio", "t": ""}, {"c": "P48", "n": "Bit Carros", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/bit-carros/p%C3%A1gina-inicial", "t": ""}, {"c": "P49", "n": "DataFlow", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/dataflow-engc/in%C3%ADcio", "t": ""}, {"c": "P50", "n": "Lógicos na Veia", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/rpm-counter/p%C3%A1gina-inicial", "t": ""}, {"c": "P53", "n": "Digital Lockers", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/digitallockers", "t": ""}, {"c": "P54", "n": "O Curto Circuito", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/ocurtocircuito/in%C3%ADcio", "t": ""}, {"c": "P55", "n": "Logic Craft", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/logiccraft/p%C3%A1gina-inicial", "t": ""}, {"c": "P56", "n": "Electricus Ingenium", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/electricus-ingenium/p%C3%A1gina-inicial", "t": ""}, {"c": "P57", "n": "Corelogic", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/corelogic/p%C3%A1gina-inicial", "t": ""}, {"c": "P58", "n": "Engenharia para Iniciantes", "d": "cl", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/enginiciante/p%C3%A1gina-inicial", "t": ""}, {"c": "P01", "n": "Circuitando", "d": "cl", "cp": "Campinas", "u": "", "t": ""}, {"c": "P02", "n": "DIGIMET", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/view/prjcircloggrupo4/p%C3%A1gina-inicial", "t": ""}, {"c": "P03", "n": "ElectroGuard", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/projetoendurance/p%C3%A1gina-inicial", "t": ""}, {"c": "P04", "n": "FFI", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/ffi?usp=sharing", "t": ""}, {"c": "P05", "n": "Matrix Binária", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/projet-circuit-logic-grup3", "t": ""}, {"c": "P06", "n": "NaviGates", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/view/navigates", "t": ""}, {"c": "P07", "n": "Playerz", "d": "cl", "cp": "Campinas", "u": "https://playerz-punch.vercel.app/home", "t": ""}, {"c": "P08", "n": "Ponte Preta", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/view/circuitoslgicos-projeto/in%C3%ADcio", "t": ""}, {"c": "P09", "n": "PalmTech", "d": "cl", "cp": "Campinas", "u": "", "t": ""}, {"c": "P10", "n": "Luminus", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/view/lumi-roll/projeto-pr%C3%A1tico", "t": ""}, {"c": "P11", "n": "Os Resistores", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/contadordemoeadas/p%C3%A1gina-inicial", "t": ""}, {"c": "P12", "n": "LapControl", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/lapcounterusf?usp=sharing", "t": ""}, {"c": "P13", "n": "BitLockers", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/view/bit-locker/in%C3%ADcio", "t": ""}, {"c": "P14", "n": "Cybernetics Parking", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/view/bit-locker/in%C3%ADcio", "t": ""}, {"c": "P15", "n": "Déjà vu", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/dejavu/in%C3%ADcio", "t": ""}, {"c": "P16", "n": "Plummer", "d": "cl", "cp": "Campinas", "u": "", "t": ""}, {"c": "P17", "n": "Digitron", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/view/digitron-grupo-3/p%C3%A1gina-inicial", "t": ""}, {"c": "P18", "n": "SmartGate", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/view/smartgateusf/p%C3%A1gina-inicial", "t": ""}, {"c": "P19", "n": "BitPass", "d": "cl", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/projeto-circuitos-logicos/p%C3%A1gina-inicial", "t": ""}, {"c": "P20", "n": "Grupo 8", "d": "cl", "cp": "Campinas", "u": "", "t": ""}, {"c": "P07", "n": "Automação", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/view/circuitos-logcos/in%C3%ADcio", "t": ""}, {"c": "P08", "n": "Coin Counter", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/grupoempilhadeira/in%C3%ADcio", "t": ""}, {"c": "P09", "n": "Engenheiros da Quebrada e O Pedro", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/engenheirosdaquebradaeopedro?usp=sharing", "t": ""}, {"c": "P10", "n": "G.U.T.O", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/g-u-t-o?usp=sharing", "t": ""}, {"c": "P11", "n": "Jogo da Velocidade", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/jogodavelocidade", "t": ""}, {"c": "P12", "n": "Os TT", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/view/os-tt/in%C3%ADcio", "t": ""}, {"c": "P13", "n": "Pista Autorama Elétrico", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/nextstagebebe?usp=sharing", "t": ""}, {"c": "P14", "n": "Projeto A", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/view/projetoa20102005/in%C3%ADcio", "t": ""}, {"c": "P15", "n": "Rota Sem Bandeiras", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/contagemdetempoestacionamento/in%C3%ADcio", "t": ""}, {"c": "P16", "n": "Tex", "d": "cl", "cp": "Itatiba", "u": "", "t": ""}, {"c": "P17", "n": "C4", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/view/feirac4/p%C3%A1gina-inicial", "t": ""}, {"c": "P18", "n": "Ajuste Técnico", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/ajustetecnico/p%C3%A1gina-inicial", "t": ""}, {"c": "P19", "n": "Bit-Coin", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/bit-coin/pagina-inicial", "t": ""}, {"c": "P20", "n": "HYtech", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/hytech/in%C3%ADcio", "t": ""}, {"c": "P21", "n": "Os Booleanos", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/osbooleanos2025?usp=sharing", "t": ""}, {"c": "P22", "n": "Os Engenheiros do Havaí", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/view/feirausf2025/in%C3%ADcio", "t": ""}, {"c": "P23", "n": "Overflow", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/view/overflow-usf/p%C3%A1gina-inicial", "t": ""}, {"c": "P24", "n": "Ratos de Engenharia", "d": "cl", "cp": "Itatiba", "u": "https://sites.google.com/view/ratinhosengenheiros123/in%C3%ADcio", "t": ""}, {"c": "P59", "n": "Grupo 1", "d": "ce", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/monkeytech/in%C3%ADcio", "t": "Terça"}, {"c": "P60", "n": "Grupo 2", "d": "ce", "cp": "Bragança Paulista", "u": "https://enzoortizalves.wixsite.com/mais-energia-1", "t": "Terça"}, {"c": "P61", "n": "Grupo 3", "d": "ce", "cp": "Bragança Paulista", "u": "https://luizao7k.github.io/projeto-circuitos-el-tricos.-/", "t": "Terça"}, {"c": "P62", "n": "Grupo 4", "d": "ce", "cp": "Bragança Paulista", "u": "https://github.com/GmScotti/CircuitoEletrico", "t": "Terça"}, {"c": "P63", "n": "Grupo 5", "d": "ce", "cp": "Bragança Paulista", "u": "https://projetoluzsolar.my.canva.site/", "t": "Terça"}, {"c": "P64", "n": "Grupo 6", "d": "ce", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/carregador-solar?usp=sharing", "t": "Terça"}, {"c": "P65", "n": "Grupo 7", "d": "ce", "cp": "Bragança Paulista", "u": "https://mustender74.github.io/Projeto-de-circuitos-logicos/desenvolvedores.html", "t": "Terça"}, {"c": "P66", "n": "Grupo 8", "d": "ce", "cp": "Bragança Paulista", "u": "https://mascara-circular-ec52f736.base44.app/", "t": "Terça"}, {"c": "P67", "n": "Grupo 9", "d": "ce", "cp": "Bragança Paulista", "u": "https://www.canva.com/design/DAGyt_GqG54/SO7wqHsgDXJLrsxYEGkA3w/view", "t": "Terça"}, {"c": "P68", "n": "Grupo 10", "d": "ce", "cp": "Bragança Paulista", "u": "https://lhymphya.my.canva.site/", "t": "Terça"}, {"c": "P69", "n": "Grupo 11", "d": "ce", "cp": "Bragança Paulista", "u": "https://etrek.online", "t": "Terça"}, {"c": "P70", "n": "Grupo 1", "d": "ce", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/prototipo-simel/in%C3%ADcio", "t": "Quinta"}, {"c": "P71", "n": "Grupo 2", "d": "ce", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/projeto-genius-usf/p%C3%A1gina-inicial", "t": "Quinta"}, {"c": "P72", "n": "Grupo 3", "d": "ce", "cp": "Bragança Paulista", "u": "https://www.tumblr.com/projeto-campainha-inclusiva/794221976027906048/membros-", "t": "Quinta"}, {"c": "P73", "n": "Grupo 4", "d": "ce", "cp": "Bragança Paulista", "u": "https://thebestwindstation.my.canva.site/", "t": "Quinta"}, {"c": "P74", "n": "Grupo 5", "d": "ce", "cp": "Bragança Paulista", "u": "https://aerovolt-mje4x6gvx6t1bag9.builder-preview.com/", "t": "Quinta"}, {"c": "P75", "n": "Grupo 6", "d": "ce", "cp": "Bragança Paulista", "u": "https://solarpoint2.webnode.page/", "t": "Quinta"}, {"c": "P76", "n": "Grupo 7", "d": "ce", "cp": "Bragança Paulista", "u": "https://caminharsaudavel.my.canva.site/automa-o-em-hospedagem", "t": "Quinta"}, {"c": "P77", "n": "Grupo 8", "d": "ce", "cp": "Bragança Paulista", "u": "https://projetoce.rf.gd/#home", "t": "Quinta"}, {"c": "P78", "n": "Grupo 9", "d": "ce", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/moreboard/in%C3%ADcio", "t": "Quinta"}, {"c": "P21", "n": "Grupo 1", "d": "ce", "cp": "Campinas", "u": "https://separate-saga-06d.notion.site/Projeto-Circuitos-El-trico-L-gicos-e-Contador-com-Sensor-Infravermelho-26fe0c1b20dd80229277e5534432cdfe", "t": "Quarta"}, {"c": "P22", "n": "Grupo 2", "d": "ce", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/fvilumina", "t": "Quarta"}, {"c": "P23", "n": "Grupo 3", "d": "ce", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/solarlab", "t": "Quarta"}, {"c": "P24", "n": "Grupo 4", "d": "ce", "cp": "Campinas", "u": "https://sites.google.com/view/protipoindicadordenveldegua/in%C3%ADcio", "t": "Quarta"}, {"c": "P25", "n": "Grupo 5", "d": "ce", "cp": "Campinas", "u": "https://engenhariaeletricausd.my.canva.site/", "t": "Quarta"}, {"c": "P26", "n": "Grupo 6", "d": "ce", "cp": "Campinas", "u": "https://sites.google.com/view/residenciainteligente/p%C3%A1gina-inicial", "t": "Quarta"}, {"c": "P27", "n": "Grupo 7", "d": "ce", "cp": "Campinas", "u": "https://sites.google.com/view/sistema-de-irrigao-automatizad/in%C3%ADcio", "t": "Quarta"}, {"c": "P28", "n": "Grupo 8", "d": "ce", "cp": "Campinas", "u": "https://sites.google.com/view/placadidatica/in%C3%ADcio", "t": "Quarta"}, {"c": "P29", "n": "Grupo 1", "d": "ce", "cp": "Campinas", "u": "https://sites.google.com/view/electrolearning/introdu%C3%A7%C3%A3o", "t": "Terça"}, {"c": "P30", "n": "Grupo 2", "d": "ce", "cp": "Campinas", "u": "https://1drv.ms/w/c/741cbc96d447989e/ESBVMAN6qdJFm2vxPfGEKUgBpwaPggbF7tLZWdQ5-4F1SA?e=8vq8oD", "t": "Terça"}, {"c": "P31", "n": "Grupo 3", "d": "ce", "cp": "Campinas", "u": "https://pedrosouza09.github.io/zzzprojeto/", "t": "Terça"}, {"c": "P32", "n": "Grupo 4", "d": "ce", "cp": "Campinas", "u": "", "t": "Terça"}, {"c": "P33", "n": "Grupo 5", "d": "ce", "cp": "Campinas", "u": "https://nihfranchini.wixsite.com/my-site", "t": "Terça"}, {"c": "P34", "n": "Grupo 6", "d": "ce", "cp": "Campinas", "u": "https://sites.google.com/view/aplicativointerativo/in%C3%ADcio", "t": "Terça"}, {"c": "P35", "n": "Grupo 7", "d": "ce", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/bright-efficiency/in%C3%ADcio", "t": "Quinta"}, {"c": "P36", "n": "Grupo 8", "d": "ce", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/circuitoseltricos2025/apresenta%C3%A7%C3%A3o", "t": "Quinta"}, {"c": "P37", "n": "Grupo 9", "d": "ce", "cp": "Campinas", "u": "https://sites.google.com/view/luminriazen", "t": "Quinta"}, {"c": "P38", "n": "Grupo 1", "d": "ce", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/sistema-monitoramento/grupo", "t": "Segunda"}, {"c": "P35", "n": "Grupo 2", "d": "ce", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/projeto-entendendo-corrente-el/p%C3%A1gina-inicial", "t": "Segunda"}, {"c": "P36", "n": "Grupo 3", "d": "ce", "cp": "Itatiba", "u": "https://ladrodejoule.tiiny.site/", "t": "Segunda"}, {"c": "P37", "n": "Grupo 4", "d": "ce", "cp": "Itatiba", "u": "https://sites.google.com/view/semforointeligente/p%C3%A1gina-inicial", "t": "Segunda"}, {"c": "P34", "n": "Grupo 5", "d": "ce", "cp": "Itatiba", "u": "https://gabrielmodadias.github.io/teste/", "t": "Segunda"}, {"c": "P34", "n": "Mini sinuca automática", "d": "ce", "cp": "Itatiba", "u": "https://sites.google.com/view/minisinucaautomatica/home", "t": "Quinta"}, {"c": "P32", "n": "Robô equilibrista", "d": "ce", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/roboequilibrista/rob%C3%B4-equilibrista", "t": "Quinta"}, {"c": "P31", "n": "Pebolim automatizado", "d": "ce", "cp": "Itatiba", "u": "https://sites.google.com/view/projeto-pebolim-automatizado/p%C3%A1gina-inicial", "t": "Quinta"}, {"c": "P30", "n": "Medidor de vazão", "d": "ce", "cp": "Itatiba", "u": "https://sites.google.com/view/medidordevazao?usp=sharing", "t": "Quinta"}, {"c": "P29", "n": "Grupo 5", "d": "ce", "cp": "Itatiba", "u": "https://bit.ly/3W9uulF", "t": "Quinta"}, {"c": "P28", "n": "Radar Arduino", "d": "ce", "cp": "Itatiba", "u": "https://sites.google.com/view/radar-arduino/in%C3%ADcio", "t": "Quinta"}, {"c": "P27", "n": "Relógio digital 7 segmentos", "d": "ce", "cp": "Itatiba", "u": "https://sites.google.com/view/relogiodigital7segs/in%C3%ADcio", "t": "Quinta"}, {"c": "P26", "n": "ESD – descarga eletrostática", "d": "ce", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/esdeletroestaticdischarge/p%C3%A1gina-inicial", "t": "Quinta"}, {"c": "P33", "n": "Esteira contadora e seletora de peças", "d": "ce", "cp": "Itatiba", "u": "https://sites.google.com/view/esteiracontadoraeseletoradepea?usp=sharing", "t": "Quinta"}, {"c": "P04", "n": "Eco Wars", "d": "poo", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/maezono-company/in%C3%ADcio", "t": "Matutino"}, {"c": "P05", "n": "Estrela Raposa", "d": "poo", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/estrelaraposa/in%C3%ADcio", "t": "Matutino"}, {"c": "P06", "n": "Pixel Defenser", "d": "poo", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/projetopixeldefense/in%C3%ADcio", "t": "Matutino"}, {"c": "P07", "n": "USF Royale", "d": "poo", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/usfroyale/p%C3%A1gina-inicial", "t": "Matutino"}, {"c": "P25", "n": "BYTHEPONG", "d": "poo", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/bythepong", "t": "Noturno"}, {"c": "P26", "n": "POOgramadores", "d": "poo", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/projeto-poo-engenharia-de-comp/in%C3%ADcio", "t": "Noturno"}, {"c": "P27", "n": "Malv", "d": "poo", "cp": "Bragança Paulista", "u": "https://quiz-ai-256g.vercel.app/", "t": "Noturno"}, {"c": "P28", "n": "Submersos", "d": "poo", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/por-agua-abaixo/p%C3%A1gina-inicial", "t": "Noturno"}, {"c": "P29", "n": "Colossal Magical Flaming Hydra", "d": "poo", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/invasores-do-espaco/in%C3%ADcio", "t": "Noturno"}, {"c": "P30", "n": "Guitarra Herói", "d": "poo", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/guitarraheroi/home", "t": "Noturno"}, {"c": "P31", "n": "Objetos Letais", "d": "poo", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/objetos-letais/inicial", "t": "Noturno"}, {"c": "P32", "n": "Rock Click", "d": "poo", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/rock-click-game/in%C3%ADcio", "t": "Noturno"}, {"c": "P44", "n": "Programadores do Tempo", "d": "poo", "cp": "Itatiba", "u": "https://sites.google.com/view/the-legend-of-gustav/in%C3%ADcio", "t": ""}, {"c": "P45", "n": "Cynet", "d": "poo", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/cyneit/pagina-inicial", "t": ""}, {"c": "P46", "n": "Racing Coders", "d": "poo", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/racingcoders", "t": ""}, {"c": "P47", "n": "Maze Runners", "d": "poo", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/paccat/in%C3%ADcio", "t": ""}, {"c": "P48", "n": "DotsEng.Studio", "d": "poo", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/dotsengstudio/inicio", "t": ""}, {"c": "P49", "n": "PyNaval", "d": "poo", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/pynaval?usp=sharing", "t": ""}, {"c": "P79", "n": "Energia Limpa", "d": "me", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/projetoenergialimpa/p%C3%A1gina-inicial", "t": ""}, {"c": "P80", "n": "Seguidor Solar", "d": "me", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/seguidorsolar/p%C3%A1gina-inicial", "t": ""}, {"c": "P81", "n": "Grupo 3", "d": "me", "cp": "Bragança Paulista", "u": "", "t": ""}, {"c": "P82", "n": "BioClima", "d": "me", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/bioclima/in%C3%ADcio", "t": ""}, {"c": "P83", "n": "CNC", "d": "me", "cp": "Bragança Paulista", "u": "https://dev-projeto-cnc.pantheonsite.io/sample-page/", "t": ""}, {"c": "P39", "n": "Grupo 1", "d": "me", "cp": "Itatiba", "u": "https://projeto-maquinas-grupo-01-2025.github.io/USF_Itatiba/", "t": ""}, {"c": "P40", "n": "Grupo 2", "d": "me", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/projeto-maquinas-grupo-02/", "t": ""}, {"c": "P41", "n": "Grupo 3", "d": "me", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/projeto-maquinas-grupo-3/", "t": ""}, {"c": "P42", "n": "Grupo 4", "d": "me", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/projetos-maquinas-grupo-04", "t": ""}, {"c": "P43", "n": "Grupo 5", "d": "me", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/projeto-maquinas-grupo-05/", "t": ""}, {"c": "P01", "n": "Chopper", "d": "rob", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/projeto-robo-chopper/", "t": ""}, {"c": "P02", "n": "Luminaris", "d": "rob", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/luminaris/p%C3%A1gina-inicial", "t": ""}, {"c": "P03", "n": "Leilou", "d": "rob", "cp": "Itatiba", "u": "https://sites.google.com/view/beetleweight/", "t": ""}, {"c": "P04", "n": "NeoBot", "d": "rob", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/site-neobot-usf/", "t": ""}, {"c": "P05", "n": "MegaDeath", "d": "rob", "cp": "Itatiba", "u": "https://sites.google.com/view/robotica-megadeath", "t": ""}, {"c": "P06", "n": "Cavalo de Tróia", "d": "rob", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/cavalo-de-troia/", "t": ""}, {"c": "P08", "n": "Rampage", "d": "rob", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/equipe-rampage", "t": ""}, {"c": "P09", "n": "Bambobee", "d": "rob", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/bambobee", "t": ""}, {"c": "P19", "n": "Typhon", "d": "rob", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/typhon", "t": ""}, {"c": "P20", "n": "Sir Nelson", "d": "rob", "cp": "Bragança Paulista", "u": "https://sites.google.com/view/robdecombate-sirnelson", "t": ""}, {"c": "P21", "n": "Overclock", "d": "rob", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/robooverclock", "t": ""}, {"c": "P22", "n": "Rocky", "d": "rob", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/roborocky", "t": ""}, {"c": "P23", "n": "Blackout", "d": "rob", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/blackout/", "t": ""}, {"c": "P24", "n": "Destroyer", "d": "rob", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/bridgetechdestroyer?usp=sharing", "t": ""}, {"c": "P42", "n": "Luluzinha Cibernética Biônica", "d": "rob", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/projetorobodecombate/", "t": ""}, {"c": "P43", "n": "Blitz", "d": "rob", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/blitz", "t": ""}, {"c": "P44", "n": "Doom", "d": "rob", "cp": "Campinas", "u": "https://sites.google.com/view/doombotchampion/", "t": ""}, {"c": "P45", "n": "Musashi", "d": "rob", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/musashi", "t": ""}, {"c": "P46", "n": "ATOM", "d": "rob", "cp": "Campinas", "u": "https://sites.google.com/view/projeto-robo-de-combate", "t": ""}, {"c": "P50", "n": "Esteira automatizada", "d": "red", "cp": "Itatiba", "u": "https://sites.google.com/mail.usf.edu.br/redesdeautomacaoesteira", "t": ""}, {"c": "P51", "n": "Elevador com CLP", "d": "red", "cp": "Itatiba", "u": "https://mourahub240.github.io/elevadorCLPUSF/", "t": ""}, {"c": "P52", "n": "Grupo 3", "d": "red", "cp": "Itatiba", "u": "https://feiradeprojetosredeseautomacao.my.canva.site/", "t": ""}, {"c": "P53", "n": "Esteira automatizada II", "d": "red", "cp": "Itatiba", "u": "https://giuliobredariol.wixsite.com/esteira-automatizada", "t": ""}, {"c": "P54", "n": "Misturador automatizado", "d": "red", "cp": "Itatiba", "u": "https://misturador-automatizado.my.canva.site/", "t": ""}, {"c": "P55", "n": "Grupo 6", "d": "red", "cp": "Itatiba", "u": "https://sites.google.com/view/projetoredeseautomao?usp=sharing", "t": ""}, {"c": "P15", "n": "Grupo 1", "d": "red", "cp": "Bragança Paulista", "u": "", "t": ""}, {"c": "P16", "n": "SmartSort System", "d": "red", "cp": "Bragança Paulista", "u": "https://sites.google.com/mail.usf.edu.br/smartsort-system/p%C3%A1gina-inicial", "t": ""}, {"c": "P17", "n": "Grupo 3", "d": "red", "cp": "Bragança Paulista", "u": "", "t": ""}, {"c": "P18", "n": "Grupo 4", "d": "red", "cp": "Bragança Paulista", "u": "", "t": ""}, {"c": "P38", "n": "Sentinela", "d": "red", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/sentinela/p%C3%A1gina-inicial", "t": ""}, {"c": "P39", "n": "Piscicultura", "d": "red", "cp": "Campinas", "u": "https://sites.google.com/mail.usf.edu.br/projeto-psicultura/p%C3%A1gina-inicial", "t": ""}, {"c": "P40", "n": "Grupo 3", "d": "red", "cp": "Campinas", "u": "https://redesautomacao.my.canva.site/", "t": ""}, {"c": "P41", "n": "Contagem de produção", "d": "red", "cp": "Campinas", "u": "https://sites.google.com/view/projetocontagemdeproducao/home", "t": ""}];
+
+const $ = s=>document.querySelector(s);
+const esc = s=>String(s??"").replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const norm = s=>String(s).normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase();
+let st={tab:"inicio",campus:"Todos",q:""};
+
+$("#nights").innerHTML = NOITES.map(n=>{const k=GRUPOS.filter(g=>g.cp===n.cp).length;
+  return `<div class="night"><div class="d">${n.d}<span>${n.wd}</span></div><b>${esc(n.local)}</b><small>${HORARIO} · ${k} projetos</small></div>`;}).join("");
+
+function tabs(){ $("#tabs").innerHTML=[{id:"inicio",nome:"Início"},...SEMS].map(t=>`<button role="tab" data-tab="${t.id}" aria-selected="${st.tab===t.id}">${esc(t.nome)}</button>`).join(""); }
+function go(id){ st.tab=id; st.campus="Todos"; st.q=""; try{history.replaceState(null,"","#"+id)}catch(e){} render(); const n=$("nav.tabs"); if(window.scrollY>n.offsetTop) window.scrollTo({top:n.offsetTop}); }
+
+function home(){
+  const links=GRUPOS.filter(g=>g.u).length;
+  const matrix=`<thead><tr><th>Semestre · componente</th>${CAMPI.map(c=>`<th>${esc(c.replace(" Paulista",""))}</th>`).join("")}<th>Total</th></tr></thead><tbody>`+
+    SEMS.flatMap(s=>s.disc.map(d=>{const r=CAMPI.map(c=>GRUPOS.filter(g=>g.d===d&&g.cp===c).length);
+      return `<tr><td>${s.n} · ${esc(DISC[d].nome)}<small>${esc(DISC[d].curso)}</small></td>${r.map(n=>`<td>${n||"–"}</td>`).join("")}<td>${r.reduce((a,b)=>a+b,0)}</td></tr>`;})).join("")+
+    `</tbody><tfoot><tr><td>Total</td>${CAMPI.map(c=>`<td>${GRUPOS.filter(g=>g.cp===c).length}</td>`).join("")}<td>${GRUPOS.length}</td></tr></tfoot>`;
+  const sems=SEMS.map(s=>`<button class="sem" data-tab="${s.id}"><span class="n">${s.n}</span><h3>${s.disc.map(d=>esc(DISC[d].nome)).join("<br>")}</h3><span class="k">${GRUPOS.filter(g=>s.disc.includes(g.d)).length} projetos →</span></button>`).join("");
+  return `
+  <section class="intro">
+    <div class="prose">
+      <span class="label">Registro da edição</span>
+      <h2>Teoria e prática na mesma bancada</h2>
+      <p>Evento acadêmico anual que reúne estudantes de diversos semestres para apresentar os projetos desenvolvidos nas componentes curriculares cursadas em 2025.2.</p>
+      <p>A feira integra teoria e prática, estimula a criatividade e o trabalho em equipe e aplica conhecimentos científicos e tecnológicos à resolução de problemas reais. É também um espaço de troca entre semestres e de contato com a pesquisa aplicada.</p>
+    </div>
+    <div style="display:grid;gap:14px;min-width:0">
+      <div class="totals"><div><b>${GRUPOS.length}</b><span class="label">projetos</span></div><div><b>6</b><span class="label">componentes</span></div><div><b>3</b><span class="label">câmpus</span></div><div><b>${links}</b><span class="label">sites</span></div></div>
+      <div class="tablebox"><table class="matrix">${matrix}</table></div>
+    </div>
+  </section>
+  <section style="display:grid;gap:14px"><h2>Projetos por semestre</h2><div class="sems">${sems}</div></section>
+  <section class="people">
+    <div class="coord"><span class="label" style="color:inherit;opacity:.75">Coordenação</span><b>${esc(COORD)}</b><span>Coordenador dos cursos de Engenharia Elétrica e Engenharia de Computação</span></div>
+    <div><h2>Professores orientadores e avaliadores</h2><ul class="profs">${PROFESSORES.map(p=>`<li>${esc(p)}</li>`).join("")}</ul></div>
+  </section>`;
+}
+
+function card(g){
+  const meta=[g.t].filter(Boolean).join(" · ");
+  return g.u ? `<a class="card" href="${esc(g.u)}" target="_blank" rel="noopener"><span class="code">${esc(g.c)}</span><span class="name">${esc(g.n)}</span><span class="go">site ↗</span>${meta?`<span class="meta">${esc(meta)}</span>`:""}</a>`
+             : `<div class="card"><span class="code">${esc(g.c)}</span><span class="name">${esc(g.n)}</span><span class="none">sem site público</span>${meta?`<span class="meta">${esc(meta)}</span>`:""}</div>`;
+}
+function semestre(sem){
+  const q=norm(st.q.trim());
+  const used=CAMPI.filter(c=>GRUPOS.some(g=>sem.disc.includes(g.d)&&g.cp===c));
+  const chips=["Todos",...used].map(c=>`<button class="chip" data-c="${esc(c)}" aria-pressed="${st.campus===c}">${esc(c)}</button>`).join("");
+  const body=sem.disc.map(d=>{
+    const blocks=used.filter(c=>st.campus==="Todos"||st.campus===c).map(c=>{
+      const all=GRUPOS.filter(g=>g.d===d&&g.cp===c); if(!all.length) return "";
+      const list=all.filter(g=>!q||norm(g.c+" "+g.n).includes(q));
+      const n=NOITES.find(x=>x.cp===c);
+      return `<div class="campus"><div class="campus-head"><h3>${esc(c)}<span>${n.d} · ${n.wd}</span></h3><span class="label">${all.length} projetos</span></div>${list.length?`<div class="cards">${list.map(card).join("")}</div>`:`<div class="empty">Nenhum projeto encontrado para “${esc(st.q)}”.</div>`}</div>`;
+    }).join("");
+    return `<section class="disc"><div class="disc-head"><span class="label">${esc(DISC[d].curso)}${DISC[d].prof?" · Prof. "+esc(DISC[d].prof):""}</span><h2>${esc(DISC[d].nome)}</h2><p class="muted">${esc(DISC[d].desc)}</p></div>${blocks||`<div class="empty">Sem projetos neste câmpus.</div>`}</section>`;
+  }).join("");
+  return `<div class="toolbar"><input id="q" type="search" placeholder="Buscar projeto ou código (ex.: P42)" aria-label="Buscar projeto" value="${esc(st.q)}">${chips}</div>${body}`;
+}
+function render(){
+  tabs();
+  const sem=SEMS.find(s=>s.id===st.tab);
+  $("#view").innerHTML = sem?semestre(sem):home();
+  const q=$("#q"); if(q) q.addEventListener("input",e=>{st.q=e.target.value;const p=e.target.selectionStart;render();const n=$("#q");n.focus();try{n.setSelectionRange(p,p)}catch(_){}});
+}
+document.addEventListener("click",e=>{const t=e.target.closest("[data-tab]"); if(t) return go(t.dataset.tab);
+  const c=e.target.closest("[data-c]"); if(c){st.campus=c.dataset.c; render();}});
+const h=(location.hash||"").slice(1); if(SEMS.some(s=>s.id===h)) st.tab=h;
+render();
+
+/* arte: placa de circuito generativa (semente fixa, mesma imagem sempre) */
+(function(){
+  const cv=$("#pcb"), ctx=cv.getContext("2d"); let t0=null, frame=null;
+  function rng(seed){ return ()=>{ seed=(seed*1664525+1013904223)>>>0; return seed/4294967296; }; }
+  function build(W,H){
+    const r=rng(20252), G=Math.max(14,Math.round(W/34)), cols=Math.floor(W/G), rows=Math.floor(H/G);
+    const used=new Set(), paths=[];
+    const cx=Math.floor(cols*0.55), cy=Math.floor(rows*0.5), cw=Math.max(3,Math.floor(cols*0.16)), ch=Math.max(3,Math.floor(rows*0.2));
+    for(let x=cx-cw;x<=cx+cw;x++)for(let y=cy-ch;y<=cy+ch;y++)used.add(x+","+y);
+    const starts=[];
+    for(let x=cx-cw+1;x<cx+cw;x+=1){starts.push([x,cy-ch-1,0,-1]);starts.push([x,cy+ch+1,0,1]);}
+    for(let y=cy-ch+1;y<cy+ch;y+=1){starts.push([cx-cw-1,y,-1,0]);starts.push([cx+cw+1,y,1,0]);}
+    for(let i=0;i<46;i++)starts.push([Math.floor(r()*cols),Math.floor(r()*rows),[1,-1,0,0][i%4],[0,0,1,-1][i%4]]);
+    for(const [sx,sy,dx0,dy0] of starts){
+      let x=sx,y=sy,dx=dx0,dy=dy0; const pts=[[x,y]]; if(used.has(x+","+y)) continue; used.add(x+","+y);
+      const len=6+Math.floor(r()*26);
+      for(let s=0;s<len;s++){
+        if(r()<0.22){ const turn=r()<0.5; const ndx=turn? (dx===0?(r()<.5?1:-1):dx):dx, ndy=turn?(dy===0?(r()<.5?1:-1):dy):dy;
+          if(dx!==0&&dy!==0){ if(r()<.5){dy=0}else{dx=0} } else {dx=ndx;dy=ndy;} }
+        const nx=x+dx, ny=y+dy;
+        if(nx<1||ny<1||nx>=cols-1||ny>=rows-1||used.has(nx+","+ny)) break;
+        x=nx;y=ny;used.add(x+","+y);pts.push([x,y]);
+      }
+      if(pts.length>3) paths.push({pts,hue:r()<0.7?"amber":"cyan",w:r()<0.25?2.4:1.4,ph:r()});
+    }
+    return {G,cx,cy,cw,ch,paths};
+  }
+  let B=null;
+  function size(){ const rc=cv.getBoundingClientRect(), d=Math.min(2,window.devicePixelRatio||1);
+    cv.width=Math.max(1,Math.round(rc.width*d)); cv.height=Math.max(1,Math.round(rc.height*d)); ctx.setTransform(d,0,0,d,0,0); B=build(rc.width,rc.height); draw(0); }
+  const COL={amber:[240,168,58],cyan:[95,212,244]};
+  function draw(t){
+    if(!B) return; const {G,cx,cy,cw,ch,paths}=B, W=cv.width, H=cv.height;
+    ctx.clearRect(0,0,W,H);
+    ctx.fillStyle="#08112a"; ctx.fillRect(0,0,W,H);
+    ctx.fillStyle="rgba(120,150,220,.10)";
+    for(let x=G;x<W;x+=G)for(let y=G;y<H;y+=G)ctx.fillRect(x-0.6,y-0.6,1.2,1.2);
+    ctx.lineCap="round"; ctx.lineJoin="round";
+    for(const p of paths){
+      const [R,Gc,Bc]=COL[p.hue];
+      ctx.strokeStyle=`rgba(${R},${Gc},${Bc},.38)`; ctx.lineWidth=p.w; ctx.shadowBlur=0;
+      ctx.beginPath(); p.pts.forEach(([x,y],i)=>i?ctx.lineTo(x*G,y*G):ctx.moveTo(x*G,y*G)); ctx.stroke();
+      const [ex,ey]=p.pts[p.pts.length-1];
+      ctx.fillStyle=`rgba(${R},${Gc},${Bc},.9)`; ctx.beginPath(); ctx.arc(ex*G,ey*G,p.w+1.6,0,7); ctx.fill();
+      ctx.fillStyle="#08112a"; ctx.beginPath(); ctx.arc(ex*G,ey*G,p.w*0.55,0,7); ctx.fill();
+      /* pulso de sinal correndo pela trilha */
+      const k=((t/2600)+p.ph)%1, idx=k*(p.pts.length-1), i0=Math.floor(idx), f=idx-i0;
+      const a=p.pts[i0], b=p.pts[Math.min(i0+1,p.pts.length-1)];
+      const px=(a[0]+(b[0]-a[0])*f)*G, py=(a[1]+(b[1]-a[1])*f)*G;
+      ctx.shadowColor=`rgb(${R},${Gc},${Bc})`; ctx.shadowBlur=12; ctx.fillStyle=`rgba(${R},${Gc},${Bc},1)`;
+      ctx.beginPath(); ctx.arc(px,py,p.w+0.8,0,7); ctx.fill(); ctx.shadowBlur=0;
+    }
+    /* chip central */
+    const x0=(cx-cw)*G, y0=(cy-ch)*G, w=cw*2*G, h=ch*2*G;
+    ctx.fillStyle="#0d1838"; ctx.strokeStyle="rgba(240,168,58,.85)"; ctx.lineWidth=1.5;
+    ctx.shadowColor="rgba(240,168,58,.6)"; ctx.shadowBlur=18; ctx.fillRect(x0,y0,w,h); ctx.shadowBlur=0; ctx.strokeRect(x0,y0,w,h);
+    ctx.strokeStyle="rgba(95,212,244,.35)"; ctx.strokeRect(x0+6,y0+6,w-12,h-12);
+    ctx.fillStyle="rgba(238,241,250,.92)"; ctx.font=`800 ${Math.round(h*0.26)}px Archivo, Arial Narrow, sans-serif`; ctx.textAlign="center"; ctx.textBaseline="middle";
+    ctx.fillText("USF",x0+w/2,y0+h*0.42);
+    ctx.fillStyle="rgba(240,168,58,.95)"; ctx.font=`500 ${Math.max(9,Math.round(h*0.11))}px "IBM Plex Mono", monospace`;
+    ctx.fillText("2025.2",x0+w/2,y0+h*0.72);
+  }
+  const reduce=window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function loop(ts){ draw(ts); frame=requestAnimationFrame(loop); }
+  size(); window.addEventListener("resize",()=>{size();});
+  if(document.fonts&&document.fonts.ready) document.fonts.ready.then(()=>draw(0));
+  if(!reduce) frame=requestAnimationFrame(loop);
+})();
+</script>
+</body>
+</html>
